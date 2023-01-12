@@ -10,7 +10,7 @@ on:
       - bastion/**
 jobs:
   pushArm:
-    name: "darkyghost/bastion_docker:${{ matrix.tag }}"
+    name: "Build ${{ matrix.tag }} for ARM"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -60,7 +60,7 @@ jobs:
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
   pushAmd:
-    name: "darkyghost/bastion_docker:${{ matrix.tag }}"
+    name: "Build ${{ matrix.tag }} for AMD"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
