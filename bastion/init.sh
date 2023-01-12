@@ -51,6 +51,8 @@ else
     echo "fresh install"
 fi
 
+npm run commands # publish commands
+
 echo "-----------------------------------------"
 echo "Installation completed..."
 echo "-----------------------------------------"
