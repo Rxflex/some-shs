@@ -1,1 +1,56 @@
-#!\/bin\/bash\r\n# Bastion Bot Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n## Move to install folder\r\napt update\r\napt install -y build-essential libtool python git tar\r\n\r\nmkdir -p \/mnt\/server\/\r\ncd \/mnt\/server\/\r\n\r\nif [ -d \"\/mnt\/server\/mongodb\" ]\r\nthen\r\n    cd \/mnt\/server\/\r\n    echo \"backing up mongodb\"\r\n    REINSTALL=true\r\n    tar -czf mongodb_backup.tar.gz mongodb\/\r\n    mv mongodb_backup.tar.gz \/tmp\r\nfi\r\n\r\ntar -czf mongodb_back.tar.gz mongodb\/\r\nmv mongodb_back.tar.gz \/tmp\r\n\r\ncd \/mnt\/server\r\nrm -rf * .git\/ .github\/ .env.example .eslintrc.yml .gitattributes .gitignore .npm\/\r\n\r\n\r\n## Clone repo\r\necho \"cloning Bastion bot\"\r\ngit clone -q --depth 1 https:\/\/github.com\/TheBastionBot\/Bastion.git .\/\r\n\r\necho \"npm install --no-package-lock\"\r\nnpm install --no-package-lock\r\necho \"npm run build\"\r\nnpm run build\r\n\r\n## Move config files.\r\nmv settings.example.yaml settings.yaml\r\nrm bastion.cmd .env.example bastion.sh\r\n\r\n\r\nmkdir mongodb\/\r\nif [ \"$REINSTALL\" == \"true\" ]\r\nthen\r\n    cd \/mnt\/server\r\n    echo \"reinstall\"\r\n    mv \/tmp\/mongodb_backup.tar.gz \/mnt\/server\r\n    tar xf mongodb_backup.tar.gz\r\n    rm mongodb_backup.tar.gz\r\nelse\r\n    echo \"fresh install\"\r\nfi\r\n\r\necho \"-----------------------------------------\"\r\necho \"Installation completed...\"\r\necho \"-----------------------------------------\"
+#!/bin/bash
+# Bastion Bot Installation Script
+#
+# Server Files: /mnt/server
+## Move to install folder
+apt update
+apt install -y build-essential libtool python git tar
+
+mkdir -p /mnt/server/
+cd /mnt/server/
+
+if [ -d "/mnt/server/mongodb" ]
+then
+    cd /mnt/server/
+    echo "backing up mongodb"
+    REINSTALL=true
+    tar -czf mongodb_backup.tar.gz mongodb/
+    mv mongodb_backup.tar.gz /tmp
+fi
+
+tar -czf mongodb_back.tar.gz mongodb/
+mv mongodb_back.tar.gz /tmp
+
+cd /mnt/server
+rm -rf * .git/ .github/ .env.example .eslintrc.yml .gitattributes .gitignore .npm/
+
+
+## Clone repo
+echo "cloning Bastion bot"
+git clone -q --depth 1 https://github.com/TheBastionBot/Bastion.git ./
+
+echo "npm install --no-package-lock"
+npm install --no-package-lock
+echo "npm run build"
+npm run build
+
+## Move config files.
+mv settings.example.yaml settings.yaml
+rm bastion.cmd .env.example bastion.sh
+
+
+mkdir mongodb/
+if [ "$REINSTALL" == "true" ]
+then
+    cd /mnt/server
+    echo "reinstall"
+    mv /tmp/mongodb_backup.tar.gz /mnt/server
+    tar xf mongodb_backup.tar.gz
+    rm mongodb_backup.tar.gz
+else
+    echo "fresh install"
+fi
+
+echo "-----------------------------------------"
+echo "Installation completed..."
+echo "-----------------------------------------"
