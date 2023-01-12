@@ -48,7 +48,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           push: true
           tags: |
-            hub.docker.com/darkyghost/bastion_docker:${{ matrix.tag }}
+            hub.docker.com/darkyghost/bastion_docker:latest
       - name: Move cache
         run: |
           rm -rf /tmp/.buildx-cache
@@ -79,4 +79,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            hub.docker.com/darkyghost/bastion_docker:${{ matrix.tag }}
+            hub.docker.com/darkyghost/bastion_docker:latest
