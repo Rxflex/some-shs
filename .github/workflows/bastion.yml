@@ -10,7 +10,7 @@ on:
       - bastion/**
 jobs:
   pushArm:
-    name: "some-shs:bastion_${{ matrix.tag }}"
+    name: "darkyghost/bastion_docker:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -36,25 +36,25 @@ jobs:
             ${{ runner.os }}-buildx-
       - uses: docker/login-action@v2
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.REGISTRY_TOKEN }}
+          registry: docker.io
+          username: ${{ secrets.DOCKER_LOGIN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - uses: docker/build-push-action@v3
         with:
-          context: ./bastion/${{ matrix.tag }}
-          file: ./bastion/${{ matrix.tag }}/Dockerfile
+          context: ./bastion
+          file: ./bastion/Dockerfile
           platforms: linux/amd64,linux/arm64
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           push: true
           tags: |
-            ghcr.io/rxflex/some-shs:bastion_${{ matrix.tag }}
+            hub.docker.com/darkyghost/bastion_docker:${{ matrix.tag }}
       - name: Move cache
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
   pushAmd:
-    name: "some-shs:bastion_${{ matrix.tag }}"
+    name: "darkyghost/bastion_docker:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -69,14 +69,14 @@ jobs:
           buildkitd-flags: --debug
       - uses: docker/login-action@v1
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.REGISTRY_TOKEN }}
+          registry: docker.io
+          username: ${{ secrets.DOCKER_LOGIN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - uses: docker/build-push-action@v2
         with:
-          context: ./bastion/${{ matrix.tag }}
-          file: ./bastion/${{ matrix.tag }}/Dockerfile
+          context: ./bastion
+          file: ./bastion/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/rxflex/some-shs:bastion_${{ matrix.tag }}
+            hub.docker.com/darkyghost/bastion_docker:${{ matrix.tag }}
