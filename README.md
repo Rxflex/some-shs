@@ -1,4 +1,13 @@
 # Bastion (Discord moderation bot) **Support only: AMD64**
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://bastion.traction.one/images/branding-logotype-light.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://bastion.traction.one/images/branding-logotype-dark.png">
+    <a title="Bastion" href="https://bastion.traction.one">
+      <img alt="Bastion Logotype" src="https://bastion.traction.one/images/branding-logotype-light.png">
+    </a>
+  </picture>
+</div>
 Original github - https://github.com/TheBastionBot/Bastion<br>
 Docker image - https://hub.docker.com/r/darkyghost/bastion-docker
 
