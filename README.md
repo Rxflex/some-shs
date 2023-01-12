@@ -1,4 +1,4 @@
-# Bastion (Discord moderation bot) **Support only: AMD64**
+# Bastion (Discord moderation bot) <br>**Support only: AMD64**
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://bastion.traction.one/images/branding-logotype-light.png">
