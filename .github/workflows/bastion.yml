@@ -45,7 +45,8 @@ jobs:
         with:
           images: |
             darkyghost/bastion-docker
-      - uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+      - name: Build
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: ./bastion
           file: ./bastion/Dockerfile
@@ -84,7 +85,8 @@ jobs:
         with:
           images: |
             darkyghost/bastion-docker
-      - uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+      - name: Build
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: ./bastion
           file: ./bastion/Dockerfile
