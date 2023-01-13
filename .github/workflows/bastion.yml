@@ -48,7 +48,7 @@ jobs:
       - id: commit
         uses: pr-mpt/actions-commit-hash@v2
       - name: Build
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: ./bastion
           file: ./bastion/Dockerfile
