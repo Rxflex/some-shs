@@ -26,7 +26,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@master
         with:
-          platforms: arm64,arm,amd64,386, mips64
+          platforms: arm64,arm,386,mips64
       - name: Cache Docker layers
         uses: actions/cache@v3
         with:
