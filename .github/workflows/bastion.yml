@@ -50,7 +50,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           push: true
-          tags: ${{ steps.commit.outputs.short }}
+          tags: darkyghost/bastion_docker:${{ steps.commit.outputs.short }}
       - name: Move cache
         run: |
           rm -rf /tmp/.buildx-cache
