@@ -7,8 +7,7 @@ RUN         apt update \
             && npm -g install npm@latest \
             && useradd -m -d /home/container container
 
-RUN     wget https://raw.githubusercontent.com/Rxflex/some-shs/main/bastion/init.sh -O /init.sh
-RUN     bash /init.sh
+RUN     wget https://raw.githubusercontent.com/Rxflex/some-shs/main/bastion/init.sh -O /init.sh && bash /init.sh
 RUN     wget https://raw.githubusercontent.com/Rxflex/some-shs/main/bastion/entrypoint.sh -O /run.sh
 USER        container
 ENV         USER=container HOME=/home/container
