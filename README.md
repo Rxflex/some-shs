@@ -36,5 +36,5 @@ docker run -d -t -i -e BASTION_API_AUTH='' \
 -e TESSERACT_BOT_TOKEN='...' \
 -e TESSERACT_MONGO_URI='mongodb+srv://...' \
 -e TESSERACT_UNSAFE_MODE=false \
---name bastion darkyghost/bastion-docker:main
+--name bastion darkyghost/bastion-docker:latest
 ```
