@@ -3,7 +3,7 @@
 #
 # Server Files: /mnt/server
 ## Move to install folder
-apt update
+#apt update
 #apt install -y python
 
 mkdir -p /mnt/server/
