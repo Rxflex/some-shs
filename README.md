@@ -25,7 +25,7 @@ TESSERACT_MONGO_URI=mongodb+srv://...
 TESSERACT_UNSAFE_MODE=false
 ```
 
-### To run this image, run this command: <br>
+### To run this image, run command: <br>
 ```
 docker run -d -t -i -e BASTION_API_AUTH='' \ 
 -e BASTION_API_PORT=8377 \
