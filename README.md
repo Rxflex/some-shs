@@ -1,4 +1,4 @@
-# Bastion (Discord moderation bot) [![build bastion](https://github.com/Rxflex/some-shs/actions/workflows/bastion.yml/badge.svg)](https://github.com/Rxflex/some-shs/actions/workflows/bastion.yml) <br>Currently supports only: AMD64
+# Bastion (Discord moderation bot) [![build bastion](https://github.com/Rxflex/some-shs/actions/workflows/bastion.yml/badge.svg)](https://github.com/Rxflex/some-shs/actions/workflows/bastion.yml) <br>Currently supports only: amd64, arm64
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://bastion.traction.one/images/branding-logotype-light.png">
