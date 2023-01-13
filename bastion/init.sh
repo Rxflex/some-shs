@@ -4,7 +4,7 @@
 # Server Files: /mnt/server
 ## Move to install folder
 apt update
-apt install -y build-essential libtool python git tar
+#apt install -y python
 
 mkdir -p /mnt/server/
 cd /mnt/server/
